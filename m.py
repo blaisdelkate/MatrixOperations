@@ -1,67 +1,85 @@
+import random
+
 def add_sub():
-    rows = int(input("Enter the number of rows : " ))
-    column = int(input("Enter the number of columns: "))
-        
-    print("\nEnter the elements of First Matrix:")
-    matrix_a= [[int(input()) for i in range(column)] for i in range(rows)]
-    print("First Matrix is: ")
-    for n in matrix_a:
-        print(n)
+     rows = int(input("Enter the number of rows : " ))
+     column = int(input("Enter the number of columns: "))
 
-    print("\nEnter the elements of Second Matrix:")
-    matrix_b= [[int(input()) for i in range(column)] for i in range(rows)]
-    for n in matrix_b:
-        print(n)
-        
-    result=[[0 for i in range(column)] for i in range(rows)]
+     print("\nEnter the elements of Matrix A:")
+     matrix_a= [[int(input()) for i in range(column)] for i in range(rows)]
+     print("Matrix A is: ")
+     for n in matrix_a:
+         print(n)
 
-    for i in range(rows):
-        for j in range(column):
-            if (choice == 1):
-                result[i][j] = matrix_a[i][j]+matrix_b[i][j]
-            elif (choice == 2):
-                result[i][j] = matrix_a[i][j]-matrix_b[i][j]
+     print("\nEnter the elements of Matrix B:")
+     matrix_b= [[int(input()) for i in range(column)] for i in range(rows)]
+     print("Matrix B is: ")
+     for n in matrix_b:
+         print(n)
 
-    print("\nSum of the Matrices: ")
-    for r in result:
-        print(r)
+     result=[[0 for i in range(column)] for i in range(rows)]
 
-def multiply():
-    # Program to multiply two matrices using nested loops
-    #Num of columns in Matrix A = Num of rows in Matrix B
-    # take a 3x3 matrix
-    A = [[12, 7, 3],
-        [4, 5, 6],
-        [7, 8, 9]]
+     for i in range(rows):
+         for j in range(column):
+             if (choice == 1):
+                 result[i][j] = matrix_a[i][j]+matrix_b[i][j]
+             elif (choice == 2):
+                 result[i][j] = matrix_a[i][j]-matrix_b[i][j]
 
-    # take a 3x4 matrix
-    B = [[5, 8, 1, 2],
-        [6, 7, 3, 0],
-        [4, 5, 9, 1]]
-        
-    result = [[0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0]]
+     if (choice == 1): 
+         print("\nSum of the Matrices: ")
+     elif (choice == 2): 
+         print("\nDifference of the Matrices: ")
 
-    # iterating by row of A
-    for i in range(len(A)):
+     for r in result:
+         print(r)
 
-        # iterating by column by B
-        for j in range(len(B[0])):
+    
+def multiply(): #Num of columns in Matrix A = Num of rows in Matrix B
+    numRows1=int(input("Input the number of rows in Matrix A: "))
+    numCols1=int(input("Input the number or columns in Matrix A: "))
+    print("Enter elements of Matrix A:")
+    matrix_a = [[random.random() for col in range(numCols1)] for row in range(numRows1)]
+    for i in range(numRows1):
+        for j in range(numCols1):
+            matrix_a[i][j]=int(input())
+    print("Matrix A is:")
+    for a in matrix_a:
+        print(a)
+    numRows2=int(input ("Input the number of rows in Matrix B: "))
+    numCols2=int(input ("Input the number or columns in Matrix B: "))  
+    if (numCols1==numRows2):
+        print("Enter elements of Matrix B:")
+        matrix_b = [[random.random() for col in range(numCols2)] for row in range(numRows2)]
+        for i in range(numRows2):
+            for j in range(numCols2):
+                matrix_b[i][j]=int(input())
+        print("Matrix B is:")
+        for b in matrix_b:
+            print(b)
+        results=[[random.random()for col in range(numCols2)]for row in range(numRows1)]
 
-            # iterating by rows of B
-            for k in range(len(B)):
-                result[i][j] += A[i][k] * B[k][j]
-
-    for r in result:
-        print(r)
+        print("\nProduct of the Matrices: ")
+        for i in range(numRows1):
+            for j in range(numCols2):
+                results[i][j]=0
+                for k in range(numCols1):
+                    results[i][j]+=matrix_a[i][k]*matrix_b[k][j]
+        for r in results:
+            print(r)
+    else:
+        print("Multiplication not possible. \nThe number of columns in the 1st matrix should be equal to the number of rows in the 2nd matrix.")
 
 if __name__ == '__main__':
     global choice 
     choice = int(input("Matrix Operations: \n[1]Addition [2]Subtraction [3]Multiplication \nChoose which operation to do: " ))
     if (choice == 1):
+        print("\nMATRIX ADDITION")
+        add_sub()
+    elif (choice == 2):
+        print("\nMATRIX SUBTRACTION")
         add_sub()
     elif (choice == 3):
+        print("\nMATRIX MULTIPLICATION")
         multiply()
 
 
