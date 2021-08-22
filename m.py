@@ -62,7 +62,7 @@ def multiply(): #Num of columns in Matrix A = Num of rows in Matrix B
         for i in range(numRows1):
             for j in range(numCols2):
                 results[i][j]=0
-                for k in range(numCols1):
+                for k in range(numRows2):
                     results[i][j]+=matrix_a[i][k]*matrix_b[k][j]
         for r in results:
             print(r)
