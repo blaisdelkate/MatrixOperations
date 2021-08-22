@@ -77,7 +77,7 @@ if __name__ == '__main__':
     inputU = 1
     while (inputU != 0):
         global choice 
-        choice = int(input("Matrix Operations: [1]Addition [2]Subtraction [3]Multiplication \nChoose which operation to do: " ))
+        choice = int(input("\nMatrix Operations: [1]Addition [2]Subtraction [3]Multiplication \nChoose which operation to do: " ))
         if (choice == 1):
             print("\nMATRIX ADDITION")
             add_sub()
