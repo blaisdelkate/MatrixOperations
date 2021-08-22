@@ -1,3 +1,5 @@
+import random
+
 def add_sub():
      rows = int(input("Input the number of rows of the matrices: " ))
      column = int(input("Input the number of columns of the matrices: "))
@@ -34,36 +36,38 @@ def add_sub():
     
 def multiply(): #Num of columns in Matrix A = Num of rows in Matrix B
     print("Matrix A:")
-    rows_a = int(input("Number of Rows: " ))
-    column_a = int(input("Number of Columns: "))
-
-    print("Input the elements of Matrix A:")
-    matrix_a= [[int(input()) for i in range(column_a)] for i in range(rows_a)]
-
-    print("Matrix A is: ")
-    for n in matrix_a:
-        print(n)
+    numRows1=int(input("Number of Rows: "))
+    numCols1=int(input("Number of Columns: "))
+    print("Enter elements of Matrix A:")
+    matrix_a = [[random.random() for col in range(numCols1)] for row in range(numRows1)]
+    for i in range(numRows1):
+        for j in range(numCols1):
+            matrix_a[i][j]=int(input())
+    print("Matrix A is:")
+    for a in matrix_a:
+        print(a)
     
-    #the number of columns of first matrix should be equal to the number of rows of second matrix
-    print("Matrix B:")
-    rows_a = int(input("Number of Rows: " ))
-    column_b = int(input("Number of Columns: "))
-    if (column_a == rows_a):
-        print("Input the elements of Matrix B:")
-
-        matrix_b = [[int(input()) for i in range(column_b)] for i in range(column_a)]
+    print("\nMatrix B:")
+    numRows2=int(input ("Number of Rows: "))
+    numCols2=int(input ("Number of Columns: "))  
+    if (numCols1==numRows2):
+        print("Enter elements of Matrix B:")
+        matrix_b = [[random.random() for col in range(numCols2)] for row in range(numRows2)]
+        for i in range(numRows2):
+            for j in range(numCols2):
+                matrix_b[i][j]=int(input())
         print("Matrix B is:")
-        for n in matrix_b:
-            print(n)
-            
-        result=[[0 for i in range(column_b)] for i in range(rows_a)]
+        for b in matrix_b:
+            print(b)
+        results=[[random.random()for col in range(numCols2)]for row in range(numRows1)]
 
-        for i in range(len(matrix_a)): #iterating row A
-            for j in range(len(matrix_b[0])): #iterating column B
-                for k in range(len(matrix_b)): #iterating row B
-                    result [i][j]+=matrix_a[i][k]*matrix_b[k][j]
         print("\nProduct of the Matrices: ")
-        for r in result:
+        for i in range(numRows1):
+            for j in range(numCols2):
+                results[i][j]=0
+                for k in range(numCols1):
+                    results[i][j]+=matrix_a[i][k]*matrix_b[k][j]
+        for r in results:
             print(r)
     else:
         print("Multiplication not possible. \nThe number of columns in the 1st matrix should be equal to the number of rows in the 2nd matrix.")
