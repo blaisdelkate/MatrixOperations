@@ -70,7 +70,7 @@ def multiply(): #Num of columns in Matrix A = Num of rows in Matrix B
         for r in results:
             print(r)
     else:
-        print("Multiplication not possible. \nThe number of columns in the 1st matrix should be equal to the number of rows in the 2nd matrix.")
+        print("\nMatrix multiplication is not possible for these matrices. \nThe number of columns in the 1st matrix should be equal to the number of rows in the 2nd matrix.")
 
 if __name__ == '__main__':
     global choice 
