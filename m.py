@@ -1,16 +1,16 @@
 import random
 
 def add_sub():
-     rows = int(input("Enter the number of rows : " ))
-     column = int(input("Enter the number of columns: "))
+     rows = int(input("Input the number of rows of the matrices: " ))
+     column = int(input("Input the number of columns of the matrices: "))
 
-     print("\nEnter the elements of Matrix A:")
+     print("\nInput the elements of Matrix A:")
      matrix_a= [[int(input()) for i in range(column)] for i in range(rows)]
      print("Matrix A is: ")
      for n in matrix_a:
          print(n)
 
-     print("\nEnter the elements of Matrix B:")
+     print("\nInput the elements of Matrix B:")
      matrix_b= [[int(input()) for i in range(column)] for i in range(rows)]
      print("Matrix B is: ")
      for n in matrix_b:
