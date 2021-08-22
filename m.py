@@ -73,16 +73,20 @@ def multiply(): #Num of columns in Matrix A = Num of rows in Matrix B
         print("\nMatrix multiplication is not possible for these matrices. \nThe number of columns in the 1st matrix should be equal to the number of rows in the 2nd matrix.")
 
 if __name__ == '__main__':
-    global choice 
-    choice = int(input("Matrix Operations: \n[1]Addition [2]Subtraction [3]Multiplication \nChoose which operation to do: " ))
-    if (choice == 1):
-        print("\nMATRIX ADDITION")
-        add_sub()
-    elif (choice == 2):
-        print("\nMATRIX SUBTRACTION")
-        add_sub()
-    elif (choice == 3):
-        print("\nMATRIX MULTIPLICATION")
-        multiply()
-
+    print("MATRIX OPERATIONS PROGRAM")
+    inputU = 1
+    while (inputU != 0):
+        global choice 
+        choice = int(input("Matrix Operations: [1]Addition [2]Subtraction [3]Multiplication \nChoose which operation to do: " ))
+        if (choice == 1):
+            print("\nMATRIX ADDITION")
+            add_sub()
+        elif (choice == 2):
+            print("\nMATRIX SUBTRACTION")
+            add_sub()
+        elif (choice == 3):
+            print("\nMATRIX MULTIPLICATION")
+            multiply()
+        inputU=int(input ("Do you want to continue the program?[0]No [1]Yes: "))  
+        
 
